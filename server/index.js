@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://study-notion-7qmifdis5-vishal-singhs-projects-0dfe4517.vercel.app",
+    origin: "*",
     
     credentials: true,
   })
