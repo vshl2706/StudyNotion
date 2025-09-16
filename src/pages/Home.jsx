@@ -175,96 +175,147 @@ import { Link } from "react-router-dom";
 
 // export default Home;
 
-
 function Home() {
   return (
-    <div className="w-full overflow-hidden">
+    <div>
       {/* Hero Section */}
-      <section className="relative flex flex-col items-center justify-center text-center text-white py-20 px-4">
+      <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 text-gray-100">
         <Link to={"/signup"}>
-          <div className="group mx-auto mb-8 w-fit rounded-full bg-richblack-800 p-2 font-bold text-richblack-200 shadow-lg hover:scale-95 transition">
-            <div className="flex items-center gap-2 rounded-full px-8 py-2 group-hover:bg-richblack-900 transition">
+          <div className="group mx-auto mt-16 w-fit rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-[2px] font-bold text-white shadow-md hover:scale-95 transition-all duration-300">
+            <div className="flex flex-row items-center gap-2 rounded-full bg-gray-900 px-10 py-[6px] transition-all duration-200 group-hover:bg-gray-800">
               <p>Become an Instructor</p>
               <FaArrowRight />
             </div>
           </div>
         </Link>
 
-        <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
+        <div className="text-center text-4xl font-extrabold">
           Empower Your Future with{" "}
           <HighlightText text={"Coding Skills"} />
-        </h1>
-        <p className="mt-4 max-w-2xl text-richblack-300 text-lg">
-          Learn at your own pace, from anywhere in the world. Access hands-on projects, quizzes, and personalized feedback from top instructors.
-        </p>
+        </div>
 
-        <div className="mt-8 flex gap-5">
+        <div className="-mt-3 w-[90%] text-center text-lg font-medium text-gray-300">
+          With our online coding courses, you can learn at your own pace, from
+          anywhere in the world, and get access to hands-on projects, quizzes,
+          and personalized feedback from instructors.
+        </div>
+
+        <div className="mt-8 flex flex-row gap-7">
           <CTAButton active={true} linkto={"/signup"}>
-            Get Started
+            Learn More
           </CTAButton>
           <CTAButton active={false} linkto={"/login"}>
             Book a Demo
           </CTAButton>
         </div>
 
-        <div className="mt-10 w-full max-w-4xl shadow-xl rounded-lg overflow-hidden">
-          <video muted loop autoPlay className="rounded-lg">
+        <div className="mx-3 my-7 rounded-lg overflow-hidden shadow-2xl shadow-purple-300/30">
+          <video
+            className="rounded-lg"
+            muted
+            loop
+            autoPlay
+          >
             <source src={Banner} type="video/mp4" />
           </video>
         </div>
-      </section>
 
-      {/* Code Blocks */}
-      <section className="py-20 bg-richblack-900">
-        <div className="w-11/12 mx-auto flex flex-col gap-20">
+        {/* First Code Block */}
+        <div>
           <CodeBlocks
-            position="lg:flex-row"
+            position={"lg:flex-row"}
             heading={
-              <h2 className="text-3xl md:text-4xl font-bold">
-                Unlock your <HighlightText text={"coding potential"} /> with our online courses.
-              </h2>
+              <div className="text-4xl font-bold">
+                Unlock your{" "}
+                <HighlightText text={"coding potential"} /> with our courses.
+              </div>
             }
-            subheading="Courses designed and taught by industry experts passionate about sharing their knowledge."
-            ctabtn1={{ btnText: "Try it Yourself", link: "/signup", active: true }}
-            ctabtn2={{ btnText: "Learn More", link: "/signup", active: false }}
-            codeColor="text-yellow-25"
-            codeblock={`<!DOCTYPE html>\n<html lang="en">\n<head>\n<title>This is myPage</title>\n</head>\n<body>\n<h1><a href="/">Header</a></h1>\n<nav>\n<a href="/one">One</a> <a href="/two">Two</a> <a href="/three">Three</a>\n</nav>\n</body>`}
-            backgroundGradient={<div className="codeblock1 absolute"></div>}
-          />
-
-          <CodeBlocks
-            position="lg:flex-row-reverse"
-            heading={
-              <h2 className="text-3xl md:text-4xl font-bold">
-                Start <HighlightText text={"coding in seconds"} />
-              </h2>
+            subheading={
+              "Our courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you."
             }
-            subheading="Our hands-on environment lets you write real code from the very first lesson."
-            ctabtn1={{ btnText: "Continue Lesson", link: "/signup", active: true }}
-            ctabtn2={{ btnText: "Learn More", link: "/signup", active: false }}
-            codeColor="text-white"
-            codeblock={`import React from "react";\nimport CTAButton from "./Button";\n\nconst Home = () => {\n  return (<div>Home</div>)\n}\n\nexport default Home;`}
-            backgroundGradient={<div className="codeblock2 absolute"></div>}
+            ctabtn1={{
+              btnText: "Try it Yourself",
+              link: "/signup",
+              active: true,
+            }}
+            ctabtn2={{
+              btnText: "Learn More",
+              link: "/signup",
+              active: false,
+            }}
+            codeColor={"text-cyan-300"}
+            codeblock={`<!DOCTYPE html>\n<html lang="en">\n<head>\n<title>This is myPage</title>\n</head>\n<body>\n<h1><a href="/">Header</a></h1>\n<nav> <a href="/one">One</a> <a href="/two">Two</a> <a href="/three">Three</a>\n</nav>\n</body>`}
+            backgroundGradient={
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-20 blur-3xl rounded-full"></div>
+            }
           />
         </div>
-      </section>
 
-      <ExploreMore />
+        {/* Second Code Block */}
+        <div>
+          <CodeBlocks
+            position={"lg:flex-row-reverse"}
+            heading={
+              <div className="w-full text-4xl font-bold lg:w-[50%]">
+                Start <HighlightText text={"coding in seconds"} />
+              </div>
+            }
+            subheading={
+              "Go ahead, give it a try. Our hands-on learning environment means you'll be writing real code from your very first lesson."
+            }
+            ctabtn1={{
+              btnText: "Continue Lesson",
+              link: "/signup",
+              active: true,
+            }}
+            ctabtn2={{
+              btnText: "Learn More",
+              link: "/signup",
+              active: false,
+            }}
+            codeColor={"text-pink-300"}
+            codeblock={`import React from "react";\nimport CTAButton from "./Button";\nimport { FaArrowRight } from "react-icons/fa";\n\nconst Home = () => {\nreturn (\n<div>Home</div>\n)\n}\nexport default Home;`}
+            backgroundGradient={
+              <div className="absolute inset-0 bg-gradient-to-l from-pink-500 to-indigo-500 opacity-20 blur-3xl rounded-full"></div>
+            }
+          />
+        </div>
 
-      {/* Career Section */}
-      <section className="bg-pure-greys-5 text-richblack-700 py-20">
-        <div className="w-11/12 mx-auto flex flex-col gap-12">
-          <div className="flex flex-col lg:flex-row items-center gap-10">
-            <h2 className="text-3xl md:text-4xl font-bold lg:w-1/2">
+        <ExploreMore />
+      </div>
+
+      {/* Mid Section */}
+      <div className="bg-gradient-to-br from-gray-50 to-gray-200 text-gray-800">
+        <div className="homepage_bg h-[320px]">
+          <div className="mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8">
+            <div className="lg:h-[150px]"></div>
+            <div className="flex flex-row gap-7 text-white lg:mt-8">
+              <CTAButton active={true} linkto={"/signup"}>
+                <div className="flex items-center gap-2">
+                  Explore Full Catalog
+                  <FaArrowRight />
+                </div>
+              </CTAButton>
+              <CTAButton active={false} linkto={"/login"}>
+                Learn More
+              </CTAButton>
+            </div>
+          </div>
+        </div>
+
+        <div className="mx-auto flex w-11/12 max-w-maxContent flex-col items-center gap-8 ">
+          <div className="mb-10 mt-[-100px] flex flex-col justify-between gap-7 lg:mt-20 lg:flex-row">
+            <div className="text-4xl font-bold lg:w-[45%] ">
               Get the skills you need for a{" "}
               <HighlightText text={"job that is in demand."} />
-            </h2>
-            <div className="lg:w-1/2 flex flex-col gap-6">
-              <p>
-                In today’s world, staying competitive requires more than just technical expertise. Gain practical skills that employers actually look for.
-              </p>
+            </div>
+            <div className="flex flex-col items-start gap-10 lg:w-[40%]">
+              <div className="text-[16px] text-gray-600">
+                The modern StudyNotion dictates its own terms. Today, to be a
+                competitive specialist requires more than professional skills.
+              </div>
               <CTAButton active={true} linkto={"/signup"}>
-                Learn More
+                <div>Learn More</div>
               </CTAButton>
             </div>
           </div>
@@ -272,20 +323,17 @@ function Home() {
           <TimelineSection />
           <LearningLanguageSection />
         </div>
-      </section>
+      </div>
 
       {/* Instructor + Reviews */}
-      <section className="bg-richblack-900 text-white py-20">
-        <div className="w-11/12 mx-auto flex flex-col gap-16 items-center">
-          <InstructorSection />
-          <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">
-              Reviews from Our Learners
-            </h2>
-            <ReviewSlider />
-          </div>
-        </div>
-      </section>
+      <div className="relative mx-auto my-20 flex w-11/12 max-w-maxContent flex-col items-center gap-8 bg-gradient-to-r from-indigo-900 via-purple-900 to-black text-white rounded-2xl p-8 shadow-xl">
+        <InstructorSection />
+
+        <h1 className="text-center text-4xl font-extrabold mt-8">
+          Reviews from other learners
+        </h1>
+        <ReviewSlider />
+      </div>
 
       {/* Footer */}
       <Footer />
